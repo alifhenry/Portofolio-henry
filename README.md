@@ -1,7 +1,6 @@
 # 🚀 Minimalist Brutalist Portfolio
 
-Hello everyone! 👋
-Let me introduce myself, I'm **Muhammad Henry Alifianto**, a Software Engineer focusing on building high-performance web applications by combining strong system logic and AI efficiency. 
+Hello everyone! 👋 Let me introduce myself, I'm **Muhammad Henry Alifianto**, a Software Engineer focusing on building high-performance web applications by combining strong system logic and AI efficiency.
 
 This is my official portfolio website project built with React and Supabase, featuring a clean "Brutalist Light Mode" public-facing site and a secure admin dashboard.
 
@@ -20,11 +19,13 @@ This project is built using modern web technologies:
 * **SweetAlert2** - Beautiful alert dialogs
 
 ## ✨ Key Features
-* **Public (Visitor):** * Bilingual Support (English & Indonesian).
+* **Public (Visitor):**
+  * Bilingual Support (English & Indonesian).
   * Project Showcase (with "On Progress" & "Selesai" status badges).
   * Certificate Gallery.
   * Interactive Floating Chat Widget (Direct to Email).
-* **Admin (Dashboard):** * Secure Login via Supabase Auth.
+* **Admin (Dashboard):**
+  * Secure Login via Supabase Auth.
   * Manage Projects (Create, Edit, Delete, Upload Images, Set Status).
   * Manage Certificates.
 
@@ -34,22 +35,24 @@ This project is built using modern web technologies:
 
 ### 1. Clone & Install
 ```bash
-git clone [https://github.com/alifhenry/Portofolio-henry.git](https://github.com/alifhenry/Portofolio-henry.git)
+git clone https://github.com/alifhenry/Portofolio-henry.git
 cd Portofolio-henry
 npm install
+```
 
-2. Environment Variables
-Create a .env file in the root directory:
-
-Cuplikan kode
+### 2. Environment Variables
+Create a `.env` file in the root directory:
+```env
 VITE_SUPABASE_URL=your-supabase-project-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
 Find these in your Supabase project under Settings → API.
-⚠️ Never commit .env to version control — make sure it's in .gitignore.
+⚠️ Never commit `.env` to version control — make sure it's in `.gitignore`.
 
-3. Database Setup (Supabase)
+### 3. Database Setup (Supabase)
 Go to your Supabase project → SQL Editor → run the script below to set up the exact tables needed for this project:
 
+```sql
 -- ============================
 -- 1. TABLES
 -- ============================
@@ -106,35 +109,37 @@ INSERT INTO storage.buckets (id, name, public) VALUES ('certificate-images', 'ce
 
 -- Admin upload policies
 CREATE POLICY "admin upload project images" ON storage.objects FOR INSERT WITH CHECK (
-  bucket_id = 'project-images' AND EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin')
+  bucket_id = 'project-images' AND 
+  EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin')
 );
 CREATE POLICY "admin upload certificate images" ON storage.objects FOR INSERT WITH CHECK (
-  bucket_id = 'certificate-images' AND EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin')
+  bucket_id = 'certificate-images' AND 
+  EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin')
 );
 
 -- Public read policies
 CREATE POLICY "public read project images" ON storage.objects FOR SELECT USING (bucket_id = 'project-images');
 CREATE POLICY "public read certificate images" ON storage.objects FOR SELECT USING (bucket_id = 'certificate-images');
+```
 
-4. Create Admin Account
+### 4. Create Admin Account
 Go to Authentication → Users → Add User in Supabase Dashboard, create an account, then copy the generated User ID.
+Run this in the SQL Editor (replace `USER_UUID` with the copied ID):
 
-Run this in the SQL Editor (replace USER_UUID with the copied ID):
-
+```sql
 INSERT INTO public.profiles (id, username, role) VALUES ('USER_UUID', 'henryadmin', 'admin');
+```
 
-5. Run Locally
-Bash
+### 5. Run Locally
+```bash
 npm run dev
+```
 Open http://localhost:5173 in your browser.
 
-👨‍💻 Credits & Contact
-Muhammad Henry Alifianto
-
-LinkedIn: Muhammad Henry Alifianto
-
-Instagram: @henryyal_
-
-GitHub: alifhenry
+## 👨‍💻 Credits & Contact
+**Muhammad Henry Alifianto**
+* LinkedIn: [Muhammad Henry Alifianto](https://www.linkedin.com/in/muhammad-henry-alifianto/)
+* Instagram: [@henryyal_](https://www.instagram.com/henryyal_?igsh=MWR1bjl3aGN1bngzMw==)
+* GitHub: [alifhenry](https://github.com/alifhenry)
 
 ⭐ If this project helped you, consider giving it a star on GitHub!
