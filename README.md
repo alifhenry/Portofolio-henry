@@ -4,7 +4,7 @@ Hello everyone! 👋 Let me introduce myself, I'm **Muhammad Henry Alifianto**, 
 
 This is my official portfolio website project built with React and Supabase, featuring a clean "Brutalist Light Mode" public-facing site and a secure admin dashboard.
 
-🔗 **Live Demo:** [https://[DOMAIN-VERCEL-ANDA].vercel.app](https://[DOMAIN-VERCEL-ANDA].vercel.app) *(Update with your actual link)*
+🔗 **Live Demo:** portofolio-henry-sigma.vercel.app(portofolio-henry-sigma.vercel.app) *(Update with your actual link)*
 
 ---
 
