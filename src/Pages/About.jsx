@@ -107,7 +107,7 @@ const AboutPage = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8 w-full justify-center">
-            <a href="https://drive.google.com/drive/folders/1BOm51Grsabb3zj6Xk27K-iRwI1zITcpo" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/drive/u/0/folders/1g2cjQa1dxxbbrTj4QF2fIzUHS7TBqU87" target="_blank" rel="noopener noreferrer">
               <button className="w-full sm:w-auto px-10 py-4 bg-zinc-900 text-white rounded-xl font-semibold transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 hover:bg-zinc-800">
                 <FileText className="w-5 h-5" /> Download CV
               </button>
